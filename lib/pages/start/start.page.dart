@@ -10,6 +10,18 @@ class StartPage extends StatefulWidget {
 class StartPageFul extends State<StartPage> {
   @override
   Widget build(context) {
-    return const Text("Hello");
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            body: Center(
+                child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [logoForStart(), Text("HOLA")],
+        ))));
+  }
+
+  Container logoForStart() {
+    return Container(
+        child: Image(width: 180, image: AssetImage("assets/images/logo.png")));
   }
 }
