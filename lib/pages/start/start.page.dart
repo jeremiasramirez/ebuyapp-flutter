@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 class StartPage extends StatefulWidget {
@@ -16,12 +17,37 @@ class StartPageFul extends State<StartPage> {
             body: Center(
                 child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [logoForStart(), Text("HOLA")],
+          children: [logoForStart(), titleForLogo()],
         ))));
   }
 
-  Container logoForStart() {
+  Container loadingForLogo() {
+    // ignore: avoid_unnecessary_containers
     return Container(
-        child: Image(width: 180, image: AssetImage("assets/images/logo.png")));
+        margin: const EdgeInsets.only(top: 20),
+        child: FadeInUp(
+            child: const CircularProgressIndicator(
+                strokeWidth: 2.5, color: Colors.redAccent)));
+  }
+
+  Container titleForLogo() {
+    // ignore: avoid_unnecessary_containers
+    return Container(
+        margin: const EdgeInsets.only(top: 25.0, left: 0, right: 0, bottom: 0),
+        child: FadeInUp(
+            child: const Text("Ebuy",
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "ubuntu",
+                    color: Colors.redAccent))));
+  }
+
+  Container logoForStart() {
+    // ignore: avoid_unnecessary_containers
+    return Container(
+        child: FadeInDown(
+            child: const Image(
+                width: 160, image: AssetImage("assets/images/logo.png"))));
   }
 }
